@@ -2,7 +2,6 @@
     <string name="app_name">Train Ticket</string>
     <string name="SECRET_KEY">caA00uttbmITi7IIym4N</string>
 
-    <string name="usernamePlaceholder">Enter your username</string>
     <string name="emailPlaceholder">Enter your e-mail address</string>
     <string name="passwordPlaceholder">Enter your password</string>
     <string name="password2Placeholder">Enter your password again</string>
@@ -14,7 +13,12 @@
 
     <string name="errorMessageEmptyEmail">Empty e-mail field</string>
     <string name="errorMessageEmptyPassword">Empty password field</string>
+    <string name="errorMessageEmptyPasswordRepeat">Empty password repeat field</string>
+    <string name="errorMessagePasswordNotTheSame">Given passwords are not the same</string>
+    <string name="errorMessagePasswordLength">Passwords should be at least 6 characters</string>
 
     <string name="messageLoginSuccess">You are successfully logged in.</string>
     <string name="messageLoginError">Invalid username or password, try again!</string>
+    <string name="messageRegSuccess">You are successfully registered.</string>
+    <string name="messageRegError">An error has occurred during your registration, please try again!</string>
 </resources>

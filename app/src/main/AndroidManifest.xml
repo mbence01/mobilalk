@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrainTicket">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegActivity"
             android:exported="false" />
         <activity
