@@ -1,24 +1,35 @@
 package hu.mobilalk.trainticket;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
-    EditText username;
+    EditText email;
     EditText password;
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+
+        auth = FirebaseAuth.getInstance();
     }
 
     public void setRegPage(View view) {
@@ -26,24 +37,34 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void doLogin(View view) {
-        String HARDCODED_USER = "admin";
-        String HARDCODED_PASS = "password";
-
-        String usernameText = username.getText().toString();
+        String emailText = email.getText().toString();
         String passwordText = password.getText().toString();
 
-        if(usernameText.length() == 0) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+        if(emailText == null || emailText.length() == 0) {
+            builder.setMessage(R.string.errorMessageEmptyEmail).setTitle("Warning").setPositiveButton("OK", null);
+            builder.create().show();
+            return;
         }
 
-        if(passwordText.length() == 0) {
-
+        if(passwordText == null || passwordText.length() == 0) {
+            builder.setMessage(R.string.errorMessageEmptyPassword).setTitle("Warning").setPositiveButton("OK", null);
+            builder.create().show();
+            return;
         }
 
-        if(!HARDCODED_USER.equals(usernameText) || !HARDCODED_PASS.equals(passwordText)) {
+        auth.signInWithEmailAndPassword(emailText, passwordText).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    builder.setMessage(R.string.messageLoginSuccess).setTitle("Success").setPositiveButton("OK", null);
+                } else {
+                    builder.setMessage(R.string.messageLoginError).setTitle("Error").setPositiveButton("OK", null);
+                }
 
-        }
-
-        System.out.println("LOGIN BTN");
+                builder.create().show();
+            }
+        });
     }
 }

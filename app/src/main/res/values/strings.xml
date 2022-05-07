@@ -11,4 +11,10 @@
     <string name="loginIconDesc">Login icon</string>
     <string name="regText">Don\'t have an account yet? Sign up <u>here</u></string>
     <string name="loginText">Already have an account? Sign in <u>here</u></string>
+
+    <string name="errorMessageEmptyEmail">Empty e-mail field</string>
+    <string name="errorMessageEmptyPassword">Empty password field</string>
+
+    <string name="messageLoginSuccess">You are successfully logged in.</string>
+    <string name="messageLoginError">Invalid username or password, try again!</string>
 </resources>

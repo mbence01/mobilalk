@@ -8,17 +8,17 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/usernamePlaceholder"
-        android:inputType="text"
+        android:autofillHints="emailAddress"
+        android:hint="@string/emailPlaceholder"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.358"
-        tools:layout_editor_absoluteX="0dp"
-        android:autofillHints="username" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/password"
@@ -28,7 +28,7 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/email"
         app:layout_constraintVertical_bias="0.101"
         tools:layout_editor_absoluteX="0dp"
         android:autofillHints="password" />
@@ -52,7 +52,7 @@
         android:id="@+id/imageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
