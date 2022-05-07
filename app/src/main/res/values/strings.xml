@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Train Ticket</string>
+    <string name="SECRET_KEY">caA00uttbmITi7IIym4N</string>
+
     <string name="usernamePlaceholder">Enter your username</string>
+    <string name="emailPlaceholder">Enter your e-mail address</string>
     <string name="passwordPlaceholder">Enter your password</string>
+    <string name="password2Placeholder">Enter your password again</string>
     <string name="loginBtnText">LOGIN</string>
+    <string name="regBtnText">REGISTER</string>
     <string name="loginIconDesc">Login icon</string>
     <string name="regText">Don\'t have an account yet? Sign up <u>here</u></string>
+    <string name="loginText">Already have an account? Sign in <u>here</u></string>
 </resources>

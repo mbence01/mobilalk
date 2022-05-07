@@ -11,41 +11,68 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="username"
         android:hint="@string/usernamePlaceholder"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
-        tools:layout_editor_absoluteX="0dp"
-        android:autofillHints="username" />
+        app:layout_constraintVertical_bias="0.311"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="emailAddress"
+        android:hint="@string/emailPlaceholder"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintVertical_bias="0.04"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="password"
         android:hint="@string/passwordPlaceholder"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintVertical_bias="0.101"
-        tools:layout_editor_absoluteX="0dp"
-        android:autofillHints="password" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintVertical_bias="0.044"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="password"
+        android:hint="@string/password2Placeholder"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.068"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/loginSubmit"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:text="@string/loginBtnText"
         android:background="@color/blue"
+        android:text="@string/regBtnText"
         android:textColor="@color/white"
+        android:onClick="doRegister"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintTop_toBottomOf="@+id/password2"
+        app:layout_constraintVertical_bias="0.275" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -63,9 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="@string/regText"
         android:clickable="true"
-        android:onClick="setRegPage"
+        android:onClick="setLoginPage"
+        android:text="@string/loginText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

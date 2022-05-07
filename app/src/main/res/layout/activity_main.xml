@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blueOp"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <EditText
         android:id="@+id/username"
@@ -40,6 +40,7 @@
         android:text="@string/loginBtnText"
         android:background="@color/blue"
         android:textColor="@color/white"
+        android:onClick="doLogin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
