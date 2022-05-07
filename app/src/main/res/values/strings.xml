@@ -4,4 +4,5 @@
     <string name="passwordPlaceholder">Enter your password</string>
     <string name="loginBtnText">LOGIN</string>
     <string name="loginIconDesc">Login icon</string>
+    <string name="regText">Don\'t have an account yet? Sign up <u>here</u></string>
 </resources>
