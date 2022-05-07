@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Train Ticket</string>
+    <string name="usernamePlaceholder">Enter your username</string>
+    <string name="passwordPlaceholder">Enter your password</string>
+    <string name="loginBtnText">LOGIN</string>
+    <string name="loginIconDesc">Login icon</string>
 </resources>
