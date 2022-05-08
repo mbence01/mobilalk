@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_buy_ticket.xml" value="0.33" />
         <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_controller.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_departure.xml" value="0.42916666666666664" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_home.xml" value="0.67" />
         <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_reg.xml" value="0.33" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_reg.xml" value="0.25" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/activity_tickets.xml" value="0.25" />
+        <entry key="..\:/Users/madra/AndroidStudioProjects/TrainTicket/app/src/main/res/layout/content_scrolling.xml" value="0.2515625" />
       </map>
     </option>
   </component>
