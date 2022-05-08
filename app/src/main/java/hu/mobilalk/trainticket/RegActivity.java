@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import hu.mobilalk.trainticket.model.User;
+import hu.mobilalk.trainticket.model.UserDao;
 
 public class RegActivity extends AppCompatActivity {
     private final String PREFIX = this.getClass().getName();
@@ -81,10 +85,23 @@ public class RegActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    builder.setMessage(R.string.messageRegSuccess).setTitle("Success").setPositiveButton("OK", null);
-                    builder.create().show();
+                    UserDao dao = new UserDao();
+                    User tmp = new User();
 
-                    setLoginPage(findViewById(android.R.id.content).getRootView());
+                    tmp.setEmail(emailText);
+                    tmp.setUsername(emailText.split("@")[0]);
+                    tmp.setId(dao.getNextId());
+
+                    dao.insert(tmp);
+
+
+                    builder.setMessage(R.string.messageRegSuccess).setTitle("Success").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            setLoginPage(findViewById(android.R.id.content).getRootView());
+                        }
+                    });
+                    builder.create().show();
                 } else {
                     builder.setMessage(R.string.messageRegError).setTitle("Error").setPositiveButton("OK", null);
                     builder.create().show();

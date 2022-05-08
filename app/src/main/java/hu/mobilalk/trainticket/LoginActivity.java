@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     public void setRegPage(View view) {
         startActivity(new Intent(this, RegActivity.class));
     }
+    public void setHomePage() {
+        startActivity(new Intent(this, HomeActivity.class));
+    }
 
     public void doLogin(View view) {
         String emailText = email.getText().toString();
@@ -57,12 +61,20 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    builder.setMessage(R.string.messageLoginSuccess).setTitle("Success").setPositiveButton("OK", null);
+                    builder.setMessage(R.string.messageLoginSuccess)
+                            .setTitle("Success")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    setHomePage();
+                                }
+                            });
+                    builder.create().show();
                 } else {
                     builder.setMessage(R.string.messageLoginError).setTitle("Error").setPositiveButton("OK", null);
+                    builder.create().show();
                 }
 
-                builder.create().show();
             }
         });
     }
