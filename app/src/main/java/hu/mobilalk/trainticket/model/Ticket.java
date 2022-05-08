@@ -6,7 +6,7 @@ public class Ticket {
     private int id;
     private int owner;
     private int trainId;
-    private Timestamp buyDate;
+    private String buyDate;
 
     public int getId() {
         return id;
@@ -33,10 +33,10 @@ public class Ticket {
     }
 
     public String getBuyDate() {
-        return buyDate.toDate().toString();
+        return buyDate;
     }
 
-    public void setBuyDate(Timestamp buyDate) {
+    public void setBuyDate(String buyDate) {
         this.buyDate = buyDate;
     }
 }

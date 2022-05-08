@@ -18,6 +18,8 @@ public class UserDao {
     private FirebaseFirestore fireStore;
     private CollectionReference collection;
 
+    private User tmp = null;
+
     public UserDao() {
         fireStore = FirebaseFirestore.getInstance();
         collection = fireStore.collection("User");
@@ -61,21 +63,24 @@ public class UserDao {
     }
 
     public User findByEmail(String email) {
-        final User[] user = {null};
+        tmp = null;
 
         collection.whereEqualTo("email", email).limit(1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
                     for (QueryDocumentSnapshot doc : task.getResult())  {
-                        user[0] = doc.toObject(User.class);
+                        UserDao.this.tmp = doc.toObject(User.class);
+                        System.out.println("FROM DAO: " + UserDao.this.tmp.getUsername());
+                        break;
                     }
                 } else {
-                    user[0] = null;
+                    System.out.println("FROM DAO: IS SUCCESSFUL FALSE");
                 }
             }
         });
-        return user[0];
+        System.out.println("USER[0].USERNAME: " + (tmp==null ? "NULL" : tmp.getUsername()));
+        return tmp;
     }
 
     public boolean insert(User user) {
@@ -85,6 +90,33 @@ public class UserDao {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 result[0] = task.isSuccessful();
+            }
+        });
+        return result[0];
+    }
+
+    public boolean update(User user) {
+        final boolean[] result = new boolean[1];
+
+
+        collection.whereEqualTo("id", user.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot doc : task.getResult()) {
+                        doc.getReference().set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                result[0] = task.isSuccessful();
+                                return;
+                            }
+                        });
+                        break;
+                    }
+                } else {
+                    result[0] = false;
+                    return;
+                }
             }
         });
         return result[0];

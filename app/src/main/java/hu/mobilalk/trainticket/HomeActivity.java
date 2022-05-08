@@ -70,6 +70,18 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, TicketsActivity.class));
     }
 
+    public void navigateToProfile(View view) {
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+
+    public void navigateToTicketBuy(View view) {
+        startActivity(new Intent(this, BuyTicketActivity.class));
+    }
+
+    public void navigateToDepartures(View view) {
+        startActivity(new Intent(this, DepartureActivity.class));
+    }
+
     private void setLoginPage() {
         startActivity(new Intent(this, LoginActivity.class));
     }

@@ -4,6 +4,20 @@ public class User {
     private int id;
     private String username;
     private String email;
+    private int balance;
+
+    public User() {
+        this.username = "NULL";
+        this.email = "NULL@NULL.COM";
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
 
     public int getId() {
         return id;

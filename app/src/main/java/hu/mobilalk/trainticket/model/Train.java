@@ -1,11 +1,22 @@
 package hu.mobilalk.trainticket.model;
 
+import com.google.firebase.Timestamp;
+
 public class Train {
     private int id;
     private String name;
     private String from;
     private String to;
-    private String where;
+    private Timestamp when;
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public int getId() {
         return id;
@@ -39,11 +50,11 @@ public class Train {
         this.to = to;
     }
 
-    public String getWhere() {
-        return where;
+    public String getWhen() {
+        return when.toDate().toString();
     }
 
-    public void setWhere(String where) {
-        this.where = where;
+    public void setWhen(Timestamp when) {
+        this.when = when;
     }
 }

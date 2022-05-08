@@ -90,6 +90,7 @@ public class RegActivity extends AppCompatActivity {
 
                     tmp.setEmail(emailText);
                     tmp.setUsername(emailText.split("@")[0]);
+                    tmp.setBalance(15000);
                     tmp.setId(dao.getNextId());
 
                     dao.insert(tmp);
